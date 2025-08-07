@@ -49,8 +49,29 @@ export const login = async( req , res ) => {
             return res.status( 400 ).json({ error: "Invalid credentials" });
         }
 
-        res.json({ token: generateToken( user.id , user.role )});
+        const token = generateToken( user.id , user.role );
+        // res.json({ token: generateToken( user.id , user.role )});
+
+        res.cookie('token', token, { 
+            httpOnly: true, 
+            sameSite:'Lax', // Helps prevent CSRF attacks
+            secure: false,// Set secure to true if using HTTPS
+            maxAge: 60 * 60 * 1000 // 1 hour in milliseconds
+        }); // Set cookie with JWT
+
+        // Optional: Send a success response (without token in body)
+        res.status(200).json({ message: 'Login successful', token });
     }catch( err ){
         res.status( 400 ).json({ error: err.message });
     }
+}
+
+// This function retrieves the current user's details based on the token provided in the request headers.
+export const getCurrentUser = async( req , res ) => {
+    try{
+        res.status( 200 ).json( req.user );
+    }catch( err ){
+        res.status( 400 ).json({ error: err.message });
+    }
+        
 }

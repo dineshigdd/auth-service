@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser'; 
 import authRoutes from './routes/auth.js'
 
 
@@ -16,7 +17,9 @@ app.use( cors());
 app.use( express.json());
 
 //middlewares
+app.use(cookieParser());
 app.use('/auth',authRoutes );
+
 
 
 app.get('/', ( req, res ) => res.send("Auth service Running"));
