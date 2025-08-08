@@ -141,3 +141,15 @@ export const refreshToken = async( req, res ) => {
         res.status(400).json({ error: err.message });
     }
 }
+
+export const logout = async (req, res) => {
+    try {
+        // Clear the cookies
+        res.clearCookie('token');
+        res.clearCookie('refreshToken');
+        
+        res.status(200).json({ message: 'Logged out successfully' });
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+}
