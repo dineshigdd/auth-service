@@ -16,30 +16,30 @@ SecureAuth is a lightweight, scalable authentication service built for modern we
 - 👥 User registration & login
 - 🔄 Token refresh flow
 - 🧠 Role-based access control
-- 🧹 Input validation & error handling
 - 🧊 Password hashing (bcrypt)
-- 🧨 Rate limiting & brute-force protection
-- 🧪 Unit & integration tests
 
----
+
 
 ### 🧰 Tech Stack
-| Layer         | Technology         |
-|--------------|--------------------|
-| Language      | Node.js / TypeScript |
-| Framework     | Express.js         |
-| Auth          | JWT, OAuth2        |
-| Database      | PostgreSQL         |
-| Caching       | Redis              |
-| Testing       | Jest / Supertest   |
+| Layer         | Technology               |
+|--------------|--------------------------|
+| Language      | Node.js / JavaScript     |
+| Framework     | Express.js               |
+| ORM           | Prisma                   |
+| Auth          | JWT                      |
+| Validation    | Zod                      |
+| Security      | bcrypt                   |
+| Middleware    | cookie-parser, CORS      |
+| Config        | dotenv                   |
+| Database      | PostgreSQL   |
 
 ---
 
 ### 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/secureauth.git
-cd secureauth
+https://github.com/dineshigdd/auth-service.git
+cd auth-services
 npm install
 ```
 
@@ -71,7 +71,7 @@ npm test
 | GET    | `/api/profile`   | Get user profile (auth)  |
 | POST   | `/api/refresh`   | Refresh access token     |
 
-You can include a Postman collection or Swagger docs for easy testing.
+You can include a Postman collection or for easy testing.
 
 ---
 
@@ -84,16 +84,19 @@ You can include a Postman collection or Swagger docs for easy testing.
 ---
 
 ### 📈 Future Improvements
-- Multi-factor authentication
-- Admin dashboard
-- Email verification
-- Docker support
+- 🧹 Input validation & error handling  
+- 🧠 Role-based access control  
+- 🔐 Multi-factor authentication  
+- 🧨 Rate limiting & brute-force protection  
+- 🧪 Unit & integration tests  
+- 🛠️ Admin dashboard  
+- 📧 Email verification  
+- 🐳 Docker support  
+
 
 ---
 
 ### 🙋‍♂️ Author
-Built by [Your Name] – passionate about secure, scalable backend systems.
+Built by [Daminda Dinesh] – passionate about secure, scalable backend systems.
 
 ---
-
-Want help writing the actual content for any of these sections? I can help tailor it to your voice and goals.
