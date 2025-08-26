@@ -57,15 +57,15 @@ export const login = async( req , res ) => {
         data: { revokedAt: new Date() }
         });
 
-        const token = generateToken( user.id , user.role , process.env.ACCESS_TOKEN_SECRET, '15s' );
+        const token = generateToken( user.id , user.role , process.env.ACCESS_TOKEN_SECRET, '1h' );
         // res.json({ token: generateToken( user.id , user.role )});
 
         res.cookie('token', token, { 
             httpOnly: true, 
             sameSite:'Lax', // Helps prevent CSRF attacks
             secure: false,// Set secure to true if using HTTPS,
-            maxAge: 15 * 1000, // 15 seconds in milliseconds
-            // maxAge: 60 * 60 * 1000 // 1 hour in milliseconds
+            // maxAge: 15 * 1000, // 15 seconds in milliseconds
+            maxAge: 60 * 60 * 1000 // 1 hour in milliseconds
         }); // Set cookie with JWT
 
         const refreshToken = generateToken( user.id , user.role , process.env.REFRESH_TOKEN_SECRET, '1m' ); // 1 minute expiration for testing purposes
@@ -74,7 +74,8 @@ export const login = async( req , res ) => {
             data: {
                 userId: user.id,
                 token: refreshToken,
-                expiresAt: new Date(Date.now() + 1 * 60 * 1000), // 1 minute from now for testing purposes
+                // expiresAt: new Date(Date.now() + 1 * 60 * 1000), // 1 minute from now for testing purposes
+                expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days from now
                 revokedAt: null, // Not revoked
             }
         });
@@ -84,8 +85,8 @@ export const login = async( req , res ) => {
             httpOnly: true,
             sameSite: 'Lax', // Helps prevent CSRF attacks
             secure: false, // Set secure to true if using HTTPS         
-            maxAge:  1 * 60 * 1000 // 1 minutes in milliseconds
-            // maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
+            // maxAge:  1 * 60 * 1000 // 1 minutes in milliseconds
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days in milliseconds
         }); 
         
         // Optional: Send a success response (without token in body)
