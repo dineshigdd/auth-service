@@ -46,10 +46,10 @@ npm install
 Create a `.env` file with your config:
 
 ```env
-PORT=3000
+PORT=4000
 DATABASE_URL=your_db_url
-JWT_SECRET=your_jwt_secret
-REDIS_URL=your_redis_url
+ACCESS_TOKEN_SECRET=your_access_token_secret
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
 ```
 
 ---
