@@ -1,13 +1,8 @@
-Absolutely—you *should*! A well-crafted README is like your app’s elevator pitch. It’s the first thing employers, recruiters, or collaborators see when they land on your repo, and it can make the difference between “meh” and “wow.”
 
-Here’s a solid structure you can follow for your backend auth service:
-
----
-
-## 🛡️ SecureAuth – Authentication Microservice
+## 🛡️ Auth-Service – Authentication Microservice
 
 ### 📌 Overview
-SecureAuth is a lightweight, scalable authentication service built for modern web applications. It handles user registration, login, token-based authentication, and role-based access control.
+Auth-Service is a lightweight, scalable authentication service built for modern web applications. It handles user registration, login, token-based authentication, and role-based access control.
 
 ---
 
