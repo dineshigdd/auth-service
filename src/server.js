@@ -1,26 +1,4 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import cookieParser from 'cookie-parser'; 
-import authRoutes from './routes/auth.js'
+import app from "./app.js";
 
-
-dotenv.config();
-
-// Load the local .env.local file second,
-// so its variables override the general ones.
-dotenv.config({ path: '.env.local', override: true });
-
-
-const app = express();
-app.use( cors());
-app.use( express.json());
-
-//middlewares
-app.use(cookieParser());
-app.use('/auth',authRoutes );
-
-
-
-app.get('/', ( req, res ) => res.send("Auth service Running"));
-app.listen( 4000, ()=> console.log("Server on port 4000"))
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

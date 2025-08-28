@@ -17,7 +17,7 @@ Auth-Service is a lightweight, scalable authentication service built for modern 
 
 ### 🧰 Tech Stack
 | Layer         | Technology               |
-|--------------|--------------------------|
+|-------------- |--------------------------|
 | Language      | Node.js / JavaScript     |
 | Framework     | Express.js               |
 | ORM           | Prisma                   |
