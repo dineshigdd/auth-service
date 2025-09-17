@@ -80,7 +80,6 @@ You can include a Postman collection or for easy testing.
 
 ### 📈 Future Improvements
 - 🧹 Input validation & error handling  
-- 🧠 Role-based access control  
 - 🔐 Multi-factor authentication  
 - 🧨 Rate limiting & brute-force protection  
 - 🧪 Unit & integration tests  
